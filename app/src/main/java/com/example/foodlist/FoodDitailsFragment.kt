@@ -23,6 +23,7 @@ class FoodDitailsFragment :Fragment(R.layout.fragment_food_ditails) {
         //display args in Ditails fragment
         binding.tvName.text=args.name
         binding.ivImage.load(args.image)
+        binding.tvdes.text=args.description
 
     }
    override  fun onDestroyView(){

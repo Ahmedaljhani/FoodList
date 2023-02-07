@@ -3,9 +3,9 @@ package com.example.foodlist
 import android.content.Context
 
 enum class TextSize(val size:Int){
-    Small(20),
-    Medium(40),
-    Large(70),
+    Small(15),
+    Medium(25),
+    Large(35),
 }
 class SettSave(context: Context) {
     companion object{

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/food_graph"
-        android:icon="@drawable/resturant"
+        android:icon="@drawable/resu"
         android:title="Food" />
     <item
         android:id="@+id/setting_graph"

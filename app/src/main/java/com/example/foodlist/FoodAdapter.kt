@@ -22,7 +22,7 @@ class FoodAdapter(val settings:SettSave,val onItemClick:(foodItem:Foods) -> Unit
             }
 
             override fun areContentsTheSame(oldItem: Foods, newItem: Foods): Boolean {
-                return oldItem.name == newItem.name && oldItem.imageUrl == newItem.imageUrl
+                return oldItem.name == newItem.name && oldItem.imageUrl == newItem.imageUrl && oldItem.description ==newItem.description
             }
 
         }
@@ -47,11 +47,13 @@ class FoodAdapter(val settings:SettSave,val onItemClick:(foodItem:Foods) -> Unit
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item:Foods,position: Int){
             itemBinding.tvName.text = item.name
+            itemBinding.tvdes.text = item.description
             itemBinding.itemContainer.setOnClickListener {
                 onItemClick(item)
 
             }
             itemBinding.tvName.textSize=settings.getFontSize().toFloat()
+            itemBinding.tvdes.textSize=settings.getFontSize().toFloat()
             itemBinding.ivAvatar.setImageResource(item.imageUrl)
         }
     }
