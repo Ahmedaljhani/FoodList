@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/food_graph"
     app:startDestination="@id/food_fragment">
 
     <fragment
         android:id="@+id/food_fragment"
         android:name="Food"
-        android:label="Food" />
+        android:label="Food" >
+        <action
+            android:id="@+id/go"
+            app:destination="@id/foodDitailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDitailsFragment"
+        android:name="com.example.foodlist.FoodDitailsFragment"
+        android:label="fragment_food_ditails"
+        tools:layout="@layout/fragment_food_ditails" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="integer" />
+    </fragment>
 </navigation>

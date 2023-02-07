@@ -1,6 +1,8 @@
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.foodlist.FoodAdapter
 import com.example.foodlist.Foods
 import com.example.foodlist.R
@@ -11,11 +13,6 @@ import com.example.foodlist.databinding.FragmentFoodBinding
 class Food : Fragment(R.layout.fragment_food) {
      private   var _binding:FragmentFoodBinding? =null
     private  val binding get() = _binding!!
-
-
-    //create the adapter
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding=FragmentFoodBinding.bind(view)
@@ -30,10 +27,15 @@ class Food : Fragment(R.layout.fragment_food) {
              Foods("toast 5$", R.drawable.toast),
             )
 
-        //assign the adapter to the recyclerView
-         val adapter = FoodAdapter(SettSave(requireContext()))
+//        //assign the adapter to the recyclerView
+         val adapter = FoodAdapter(SettSave(requireContext())){
+             val action = FoodDirections.go(it.name,it.imageUrl)
+             view.findNavController().navigate(action)
+         }
         binding.rvFood.adapter = adapter
         adapter.submitList(foodList)
+//
+
     }
 
     override fun onDestroyView() {

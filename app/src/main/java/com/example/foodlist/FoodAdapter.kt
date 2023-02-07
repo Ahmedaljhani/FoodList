@@ -13,7 +13,7 @@ import com.example.foodlist.databinding.FoodItemBinding
  * Created by Taha Ben Ashur (https://github.com/tahaak67) on 02,Feb,2023
  */
 
-class FoodAdapter(val settings:SettSave) : ListAdapter<Foods,RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class FoodAdapter(val settings:SettSave,val onItemClick:(foodItem:Foods) -> Unit) : ListAdapter<Foods,RecyclerView.ViewHolder>(DIFF_CALLBACK) {
     companion object{
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Foods>() {
 
@@ -47,6 +47,10 @@ class FoodAdapter(val settings:SettSave) : ListAdapter<Foods,RecyclerView.ViewHo
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item:Foods,position: Int){
             itemBinding.tvName.text = item.name
+            itemBinding.itemContainer.setOnClickListener {
+                onItemClick(item)
+
+            }
             itemBinding.tvName.textSize=settings.getFontSize().toFloat()
             itemBinding.ivAvatar.setImageResource(item.imageUrl)
         }
