@@ -28,8 +28,6 @@ class Setting : Fragment(R.layout.fragment_setting) {
                     R.id.smallRB -> saveSetting.setFontSize(TextSize.Small)
                     R.id.medRB -> saveSetting.setFontSize(TextSize.Medium)
                     R.id.largRB -> saveSetting.setFontSize(TextSize.Large)
-
-
                 }
             }
         }

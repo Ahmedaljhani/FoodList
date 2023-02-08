@@ -1,4 +1,4 @@
-package com.example.foodlist
+package com.example.foodlist.modal
 
 data class Foods(
     val name: String,

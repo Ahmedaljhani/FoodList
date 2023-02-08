@@ -1,4 +1,4 @@
-package com.example.foodlist
+package com.example.foodlist.view
 
 import android.view.LayoutInflater
 
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodlist.modal.Foods
+import com.example.foodlist.SettSave
 import com.example.foodlist.databinding.FoodItemBinding
 
 
@@ -13,7 +15,9 @@ import com.example.foodlist.databinding.FoodItemBinding
  * Created by Taha Ben Ashur (https://github.com/tahaak67) on 02,Feb,2023
  */
 
-class FoodAdapter(val settings:SettSave,val onItemClick:(foodItem:Foods) -> Unit) : ListAdapter<Foods,RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class FoodAdapter(val settings: SettSave, val onItemClick:(foodItem: Foods) -> Unit) : ListAdapter<Foods,RecyclerView.ViewHolder>(
+    DIFF_CALLBACK
+) {
     companion object{
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Foods>() {
 
@@ -45,7 +49,7 @@ class FoodAdapter(val settings:SettSave,val onItemClick:(foodItem:Foods) -> Unit
 
     inner class ViewHolder(private val itemBinding: FoodItemBinding):
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind(item:Foods,position: Int){
+        fun bind(item: Foods, position: Int){
             itemBinding.tvName.text = item.name
             itemBinding.tvdes.text = item.description
             itemBinding.itemContainer.setOnClickListener {

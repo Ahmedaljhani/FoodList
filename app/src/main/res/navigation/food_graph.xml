@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/foodDitailsFragment"
-        android:name="com.example.foodlist.FoodDitailsFragment"
+        android:name="com.example.foodlist.view.FoodDitailsFragment"
         android:label="fragment_food_ditails"
         tools:layout="@layout/fragment_food_ditails" >
         <argument
